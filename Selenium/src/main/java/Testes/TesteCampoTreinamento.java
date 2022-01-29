@@ -19,9 +19,9 @@ public class TesteCampoTreinamento {
 
 	@Before
 	public void inicializa(){
-		System.setProperty("webdriver.chrome.driver", "C:/Usuarios/jluiz/jonathan/chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", "C:/Usuarios/jluiz/jonathan/chromedriver.exe");
 
-//		System.setProperty("webdriver.chrome.driver", "/Users/jonat/Documents/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "/Users/jonat/Documents/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -30,7 +30,7 @@ public class TesteCampoTreinamento {
 	
 	@After
 	public void finaliza(){
-		driver.quit();
+//		driver.quit();
 	}
 	
 	@Test
@@ -115,6 +115,10 @@ public class TesteCampoTreinamento {
 				dsl.obterTexto(By.className("facilAchar")));
 	}
 	
+	@Test
+	public void deveClicarBotaoTabela() {
+		dsl.clicarBotaoTabela("Nome", "Maria","Botao", "elementosForm:tableUsuarios");
+	}
 }
 
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TesteCampoTreinamento.inicializa" project="Selenium" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testcase name="initializationError" classname="org.junit.runner.manipulation.Filter" time="0.017">
+    <error>java.lang.Exception: No tests found matching [{ExactMatcher:fDisplayName=inicializa], {ExactMatcher:fDisplayName=inicializa(Testes.TesteCampoTreinamento)], {LeadingIdentifierMatcher:fClassName=Testes.TesteCampoTreinamento,fLeadingIdentifier=inicializa]] from org.junit.internal.requests.ClassRequest@2a556333&#13;
+	at org.junit.internal.requests.FilterRequest.getRunner(FilterRequest.java:40)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createFilteredTest(JUnit4TestLoader.java:83)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:74)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:49)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:513)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+  </testcase>
+</testrun>

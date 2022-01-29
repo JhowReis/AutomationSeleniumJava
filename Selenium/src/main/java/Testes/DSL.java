@@ -177,27 +177,32 @@ public class DSL {
 
 	}
 
-	/********* tabela ************/
-
-	public void clicarBotaoTabela(String colunaBusca, String colunaBotao, String valor) {
+	/************** Tabela *********************/
+	
+	public void clicarBotaoTabela(String colunaBusca, String valor, String colunaBotao, String idTabela){
+		//procurar coluna do registro
 		WebElement tabela = driver.findElement(By.xpath("//*[@id='elementosForm:tableUsuarios']"));
 		int idColuna = obterIndiceColuna(colunaBusca, tabela);
-		int idLinha = obterIndiceLinha(colunaBotao, tabela, idColuna);
 		
+		//encontrar a linha do registro
+		int idLinha = obterIndiceLinha(valor, tabela, idColuna);
+		
+		//procurar coluna do botao
 		int idColunaBotao = obterIndiceColuna(colunaBotao, tabela);
- 
 		
-
+		//clicar no botao da celula encontrada
+		WebElement celula = tabela.findElement(By.xpath(".//tr["+idLinha+"]/td["+idColunaBotao+"]"));
+		celula.findElement(By.xpath(".//input")).click();
+		
 	}
-	
-	protected int obterIndiceLinha(String coluna, WebElement tabela, int idColuna) {
-		List<WebElement>  linhas = tabela.findElements(By.xpath(".//tr/td["+idColuna+"]"));
-		int idLinha = -1;
-		for (int i = 0; i < linhas.size(); i++) {
-			if (linhas.get(i).getText().equals(linhas)) {
-				idLinha = i + 1;
-				break;
 
+	protected int obterIndiceLinha(String valor, WebElement tabela, int idColuna) {
+		List<WebElement> linhas = tabela.findElements(By.xpath("./tbody/tr/td["+idColuna+"]"));
+		int idLinha = -1;
+		for(int i = 0; i < linhas.size(); i++) {
+			if(linhas.get(i).getText().equals(valor)) {
+				idLinha = i+1;
+				break;
 			}
 		}
 		return idLinha;
@@ -206,14 +211,12 @@ public class DSL {
 	protected int obterIndiceColuna(String coluna, WebElement tabela) {
 		List<WebElement> colunas = tabela.findElements(By.xpath(".//th"));
 		int idColuna = -1;
-		for (int i = 0; i < colunas.size(); i++) {
-			if (colunas.get(i).getText().equals(colunas)) {
-				idColuna = i + 1;
+		for(int i = 0; i < colunas.size(); i++) {
+			if(colunas.get(i).getText().equals(coluna)) {
+				idColuna = i+1;
 				break;
-
 			}
 		}
-		return  idColuna;
+		return idColuna;
 	}
-
 }
