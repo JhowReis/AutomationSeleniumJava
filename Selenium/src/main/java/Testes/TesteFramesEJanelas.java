@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
@@ -16,7 +17,9 @@ public class TesteFramesEJanelas {
 
 	@Before
 	public void inicializa(){
-		System.setProperty("webdriver.chrome.driver", "/Users/jonat/Documents/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Usuarios/jluiz/jonathan/chromedriver.exe");
+
+//		System.setProperty("webdriver.chrome.driver", "/Users/jonat/Documents/drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 //		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.manage().window().maximize();
@@ -38,6 +41,17 @@ public class TesteFramesEJanelas {
 
 		dsl.sairFrame();
 		dsl.escrever("elementosForm:nome", msg);
+	}
+	
+	@Test
+	public void deveInteragirComFrameEscondido() {
+		WebElement frame = driver.findElement(By.id("frame2"));
+		dsl.executarJavascript("window.scrollBy(0, arguments[0])", frame.getLocation().y);
+		dsl.entrarFrame("frame2");
+		dsl.clicarBotao("frameButton");
+		String msg = dsl.alertaObterTextoEAceita();
+		Assert.assertEquals("Frame OK!", msg);
+		
 	}
 	
 	@Test

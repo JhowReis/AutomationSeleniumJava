@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TesteRegrasCadastro" project="Selenium" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="Testes.TesteRegrasCadastro" time="11.747">
+    <testsuite name="[0]" time="11.747">
+      <testcase name="deveValidarRegras[0]" classname="Testes.TesteRegrasCadastro" time="11.747"/>
+    </testsuite>
+  </testsuite>
+</testrun>

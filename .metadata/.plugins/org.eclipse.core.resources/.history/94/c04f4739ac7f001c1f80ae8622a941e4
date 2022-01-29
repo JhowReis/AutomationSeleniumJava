@@ -1,0 +1,49 @@
+package Testes;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TesteRegrasCadastro {
+	
+	private WebDriver driver;
+	private DSL dsl;
+	private CampoTreinametoPage page;
+	private  String nome;
+	private String sobrenome;
+	private String sexo;
+
+	@Before
+	public void inicializa() {
+		System.setProperty("webdriver.chrome.driver", "C:/Usuarios/jluiz/jonathan/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().setSize(new Dimension(1200, 765));
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		dsl = new DSL(driver);
+		page = new CampoTreinametoPage(driver);
+	}
+
+	@After
+	public void finaliza() {
+		driver.quit();
+	}
+
+	public void deveValidarRegras() {
+		page.setNome(nome);
+		page.setSobrenome(sobrenome);
+		if(sexo.equals("Masculino")) {
+			
+			page.setSexoMasculino();
+		}else {	
+			page.setComidaCarne();
+		}
+
+		page.setEsporte("Karate", "O que eh esporte?");
+		page.cadastrar();
+		Assert.assertEquals("Voce faz esporte ou nao?", dsl.alertaObterTextoEAceita());
+	}
+
+}

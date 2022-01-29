@@ -1,0 +1,14 @@
+package Testes;
+
+public class CampoTreinametoPage {
+	
+	private DSL dsl;
+	
+	public CampoTreinamentoPage(WebDriver driver) {
+		dsl = new DSL(driver);
+	}
+	public void setNome(String nome) {
+		dsl.escrever("elementosForm:nome", nome);
+
+	}
+}

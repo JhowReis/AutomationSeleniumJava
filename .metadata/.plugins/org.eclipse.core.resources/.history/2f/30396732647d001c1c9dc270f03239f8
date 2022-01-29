@@ -1,0 +1,39 @@
+package Testes;
+
+import org.openqa.selenium.WebDriver;
+
+public class CampoTreinametoPage {
+	
+	private DSL dsl;
+	
+
+	public CampoTreinametoPage(WebDriver driver) {
+		dsl = new DSL(driver);
+	}
+
+
+	public void setNome(String nome) {
+		dsl.escrever("elementosForm:nome", nome);
+
+	}
+
+	public void setSobrenome(String sobreNome) {
+		dsl.escrever("elementosForm:sobrenome", sobreNome);
+	}
+	
+	public void setSexoMasculino() {
+		dsl.clicarRadio("elementosForm:sexo:0");
+	}
+	public void setSexoFeminino() {
+		dsl.clicarRadio("elementosForm:sexo:1");
+	}
+	public void setComidaPizza() {
+		dsl.clicarRadio("elementosForm:comidaFavorita:2");
+
+	}
+	public void setEscolaridade(String valor) {
+		dsl.selecionarCombo("elementosForm:escolaridade", "Mestrado");
+
+	}
+}
+

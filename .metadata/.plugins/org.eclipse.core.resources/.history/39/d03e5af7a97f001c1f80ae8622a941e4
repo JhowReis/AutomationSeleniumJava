@@ -1,0 +1,18 @@
+package Testes;
+
+import org.junit.Assert;
+
+public class TesteRegrasCadastro {
+
+	public void deveValidarRegras() {
+		page.setNome("Nome qualquer");
+		page.setSobrenome("Sobrenome qualquer");
+		page.setSexoFeminino();
+		page.setComidaCarne();
+
+		page.setEsporte("Karate", "O que eh esporte?");
+		page.cadastrar();
+		Assert.assertEquals("Voce faz esporte ou nao?", dsl.alertaObterTextoEAceita());
+	}
+
+}

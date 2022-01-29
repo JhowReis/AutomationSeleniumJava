@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SuiteTeste" project="Selenium" tests="18" started="18" failures="0" errors="0" ignored="0">
+  <testsuite name="Testes.SuiteTeste" time="64.039">
+    <testsuite name="Testes.TesteCadastro" time="31.207">
+      <testcase name="deveValidarSexoObrigatorio" classname="Testes.TesteCadastro" time="9.233"/>
+      <testcase name="deveValidarSobrenomeObrigatorio" classname="Testes.TesteCadastro" time="5.768"/>
+      <testcase name="deveValidarComidaVegetariana" classname="Testes.TesteCadastro" time="4.711"/>
+      <testcase name="deveValidarNomeObrigatorio" classname="Testes.TesteCadastro" time="3.052"/>
+      <testcase name="deveRealizarCadastroComSucesso" classname="Testes.TesteCadastro" time="4.558"/>
+      <testcase name="deveValidarEsportistaIndeciso" classname="Testes.TesteCadastro" time="3.884"/>
+    </testsuite>
+    <testsuite name="Testes.TesteRegrasCadastro" time="3.165">
+      <testsuite name="[0]" time="3.165">
+        <testcase name="deveValidarRegras[0]" classname="Testes.TesteRegrasCadastro" time="3.165"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Testes.TesteCampoTreinamento" time="29.664">
+      <testcase name="deveinteragirComLinks" classname="Testes.TesteCampoTreinamento" time="2.89"/>
+      <testcase name="deveVerificarValoresCombo" classname="Testes.TesteCampoTreinamento" time="2.76"/>
+      <testcase name="deveIntegarirComCombo" classname="Testes.TesteCampoTreinamento" time="2.746"/>
+      <testcase name="testTextFieldDuplo" classname="Testes.TesteCampoTreinamento" time="2.686"/>
+      <testcase name="testeTextField" classname="Testes.TesteCampoTreinamento" time="2.54"/>
+      <testcase name="deveIntegarirComCheckbox" classname="Testes.TesteCampoTreinamento" time="2.496"/>
+      <testcase name="deveinteragirComBotoes" classname="Testes.TesteCampoTreinamento" time="2.611"/>
+      <testcase name="deveIntegarirComRadioButton" classname="Testes.TesteCampoTreinamento" time="2.65"/>
+      <testcase name="deveVerificarValoresComboMultiplo" classname="Testes.TesteCampoTreinamento" time="2.932"/>
+      <testcase name="deveBuscarTextosNaPagina" classname="Testes.TesteCampoTreinamento" time="2.418"/>
+      <testcase name="deveIntegarirComTextArea" classname="Testes.TesteCampoTreinamento" time="2.931"/>
+    </testsuite>
+  </testsuite>
+</testrun>
