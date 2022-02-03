@@ -1,0 +1,54 @@
+package Testes;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class TesteSincronismo {
+
+	private WebDriver driver;
+	private DSL dsl;
+
+	@Before
+	public void inicializa(){
+		System.setProperty("webdriver.chrome.driver", "C:/Usuarios/jluiz/jonathan/chromedriver.exe");
+
+//		System.setProperty("webdriver.chrome.driver", "/Users/jonat/Documents/drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().setSize(new Dimension(1200, 765));
+		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		dsl = new DSL(driver);
+	}
+	
+	@After
+	public void finaliza(){
+		driver.quit();
+	}
+	
+	@Test
+	public void esperaFixa() throws InterruptedException {
+		dsl.clicarBotao("buttonDelay");
+		Thread.sleep(5000);
+		dsl.escrever("novoCampo", "Deu Certo?");
+	}
+	@Test
+	public void esperaImplicita() throws InterruptedException {
+		dsl.clicarBotao("buttonDelay");
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.MILLISECONDS);
+		dsl.escrever("novoCampo", "Deu Certo?");
+	}
+	@Test
+	public void esperaExplicita() throws InterruptedException {
+		dsl.clicarBotao("buttonDelay");
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.presenceOfAllElementsLocated(By.id("novoCampo")));
+		dsl.escrever("novoCampo", "Deu Certo?");
+	}
+}

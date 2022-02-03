@@ -1,0 +1,25 @@
+package core;
+
+import static core.DriverFactory.getDriver;
+import static core.DriverFactory.killDriver;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.junit.After;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+public class BaseTest {
+
+	@After
+	public void finaliza() {
+		TakesScreenshot ss = (TakesScreenshot) getDriver();
+		File arquivo = ss.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(arquivo, "screenshot.jpg");
+		if(Propriedades.FECHAR_BROWSER) {
+			killDriver();
+			
+		}
+	}
+}

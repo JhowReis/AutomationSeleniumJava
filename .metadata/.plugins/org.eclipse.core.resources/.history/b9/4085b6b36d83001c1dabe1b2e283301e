@@ -1,0 +1,20 @@
+package core;
+
+import static core.DriverFactory.getDriver;
+import static core.DriverFactory.killDriver;
+
+import org.junit.After;
+import org.openqa.selenium.TakesScreenshot;
+
+public class BaseTest {
+
+	@After
+	public void finaliza() {
+		TakesScreenshot ss = (TakesScreenshot) getDriver();
+		
+		if(Propriedades.FECHAR_BROWSER) {
+			killDriver();
+			
+		}
+	}
+}

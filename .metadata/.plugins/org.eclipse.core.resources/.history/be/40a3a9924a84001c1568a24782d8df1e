@@ -1,0 +1,13 @@
+package core;
+
+public class Propriedades {
+	public static boolean FECHAR_BROWSER = false;
+	
+	
+	
+	public enum Browsers{
+		CHROME,
+		FIREFOX
+	}
+}
+

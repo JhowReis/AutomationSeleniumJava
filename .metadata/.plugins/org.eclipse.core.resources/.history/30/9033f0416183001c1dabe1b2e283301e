@@ -1,0 +1,12 @@
+package core;
+
+public class BasePage {
+
+	private DSL dsl;
+	
+
+	public CampoTreinametoPage() {
+		dsl = new DSL();
+	}
+
+}
